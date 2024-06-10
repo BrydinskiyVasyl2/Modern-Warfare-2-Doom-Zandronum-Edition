@@ -1,0 +1,233 @@
+ACTOR MW2Player : DoomPlayer
+{
+  Player.DisplayName "MW2Player"
+  Player.StartItem "DesertEagle"
+  Player.StartItem "CombatKnife"
+  Player.StartItem "F2000Loaded" 30
+  Player.StartItem "ACRAmmoLoaded" 30
+  Player.StartItem "ShotgunLoaded" 4
+  Player.StartItem "UMP45Loaded" 45
+  Player.StartItem "DeagleLoaded" 7
+  Player.StartItem "DeagleAmmo", 50
+  Scale 0.6
+
+  States
+  {
+  Spawn:
+    Play H -1
+    Loop
+  See:
+    Play ABCD 4 
+    Loop
+  Missile:
+    Play F 12
+    Goto Spawn
+  Melee:
+    Play E 6 BRIGHT
+    Goto Missile
+  Pain:
+    Play G 4 
+    Play G 4 A_Pain
+    Goto Spawn
+  Death:
+    Play I 5
+    Play J 5 A_PlayerScream
+    Play k 5 A_NoBlocking
+    Play L 5
+    Play M -1
+  XDeath:
+    Play I 5
+    Play J 5 A_PlayerScream
+    Play k 5 A_NoBlocking
+    Play L 5
+    Play M -1
+    Stop
+ }
+}
+
+ACTOR MW2Player2 : DoomPlayer
+{
+  Player.DisplayName "MW2Player With UMP45"
+  Player.StartItem "UMP45"
+  Player.StartItem "DesertEagle"
+  Player.StartItem "CombatKnife"
+  Player.StartItem "F2000Loaded" 30
+  Player.StartItem "ACRAmmoLoaded" 30
+  Player.StartItem "ShotgunLoaded" 4
+  Player.StartItem "UMP45Loaded" 45
+  Player.StartItem "DeagleLoaded" 7
+  Player.StartItem "UMP45Ammo" 90
+  Player.StartItem "DeagleAmmo", 50
+  Scale 0.6
+
+  States
+  {
+  Spawn:
+    Play H -1
+    Loop
+  See:
+    Play ABCD 4 
+    Loop
+  Missile:
+    Play F 12
+    Goto Spawn
+  Melee:
+    Play E 6 BRIGHT
+    Goto Missile
+  Pain:
+    Play G 4 
+    Play G 4 A_Pain
+    Goto Spawn
+  Death:
+    Play I 5
+    Play J 5 A_PlayerScream
+    Play k 5 A_NoBlocking
+    Play L 5
+    Play M -1
+  XDeath:
+    Play I 5
+    Play J 5 A_PlayerScream
+    Play k 5 A_NoBlocking
+    Play L 5
+    Play M -1
+    Stop
+ }
+}
+
+ACTOR MW2Player3 : DoomPlayer
+{
+  Player.DisplayName "MW2Player With ACR"
+  Player.StartItem "ACR"
+  Player.StartItem "DesertEagle"
+  Player.StartItem "CombatKnife"
+  Player.StartItem "F2000Loaded" 30
+  Player.StartItem "ACRAmmoLoaded" 30
+  Player.StartItem "ShotgunLoaded" 4
+  Player.StartItem "UMP45Loaded" 45
+  Player.StartItem "DeagleLoaded" 7
+  Player.StartItem "ACRAmmo", 60
+  Player.StartItem "DeagleAmmo", 50
+  Scale 0.6
+
+  States
+  {
+  Spawn:
+    Play H -1
+    Loop
+  See:
+    Play ABCD 4 
+    Loop
+  Missile:
+    Play F 12
+    Goto Spawn
+  Melee:
+    Play E 6 BRIGHT
+    Goto Missile
+  Pain:
+    Play G 4 
+    Play G 4 A_Pain
+    Goto Spawn
+  Death:
+    Play I 5
+    Play J 5 A_PlayerScream
+    Play k 5 A_NoBlocking
+    Play L 5
+    Play M -1
+  XDeath:
+    Play I 5
+    Play J 5 A_PlayerScream
+    Play k 5 A_NoBlocking
+    Play L 5
+    Play M -1
+    Stop
+ }
+}
+
+ACTOR MW2Player4 : DoomPlayer
+{
+  Player.DisplayName "MW2Player With F2000"
+  Player.StartItem "F2000"
+  Player.StartItem "DesertEagle"
+  Player.StartItem "CombatKnife"
+  Player.StartItem "F2000Loaded" 30
+  Player.StartItem "ACRAmmoLoaded" 30
+  Player.StartItem "ShotgunLoaded" 4
+  Player.StartItem "UMP45Loaded" 45
+  Player.StartItem "DeagleLoaded" 7
+  Player.StartItem "F2000Ammo", 60
+  Player.StartItem "DeagleAmmo", 50
+  Scale 0.6
+
+  States
+  {
+  Spawn:
+    Play H -1
+    Loop
+  See:
+    Play ABCD 4 
+    Loop
+  Missile:
+    Play F 12
+    Goto Spawn
+  Melee:
+    Play E 6 BRIGHT
+    Goto Missile
+  Pain:
+    Play G 4 
+    Play G 4 A_Pain
+    Goto Spawn
+  Death:
+    Play I 5
+    Play J 5 A_PlayerScream
+    Play k 5 A_NoBlocking
+    Play L 5
+    Play M -1
+  XDeath:
+    Play I 5
+    Play J 5 A_PlayerScream
+    Play k 5 A_NoBlocking
+    Play L 5
+    Play M -1
+    Stop
+ }
+}
+
+Actor PistolSpawner : RandomSpawner Replaces Pistol
+{
+DropItem "DesertEagle"
+}
+
+Actor ChainsawSpawner : RandomSpawner Replaces Chainsaw
+{
+DropItem "UMP45"
+}
+
+Actor ChaingunSpawner : RandomSpawner Replaces Chaingun
+{
+DropItem "ACR"
+}
+
+Actor PlasmaRifleSpawner : RandomSpawner Replaces PlasmaRifle
+{
+DropItem "F2000"
+}
+
+Actor BFG9000Spawner : RandomSpawner Replaces BFG9000
+{
+DropItem "F2000"
+DropItem "UMP45"
+DropItem "ACR"
+DropItem "M1040"
+}
+
+Actor CellSpawner : Randomspawner Replaces Cell
+{
+  Dropitem "ClipSpawner"
+  Dropitem "Shell"
+}
+
+Actor CellPackSpawner : Randomspawner Replaces CellPack
+{
+  Dropitem "ClipBoxSpawner"
+  Dropitem "ShellBox"
+}
